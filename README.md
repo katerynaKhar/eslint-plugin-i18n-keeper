@@ -1,5 +1,8 @@
 # eslint-plugin-i18n-keeper
 
+[![npm](https://img.shields.io/npm/v/eslint-plugin-i18n-keeper)](https://www.npmjs.com/package/eslint-plugin-i18n-keeper)
+[![node](https://img.shields.io/node/v/eslint-plugin-i18n-keeper)](https://nodejs.org)
+
 Lint locale files from ESLint. Placeholders, plural forms and missing keys, checked against **how the framework actually substitutes them** rather than against how the token looks.
 
 Wraps [i18n-keeper](https://github.com/katerynaKhar/i18n-keeper), which is also a CLI and an MCP server. This package is the ESLint door.
