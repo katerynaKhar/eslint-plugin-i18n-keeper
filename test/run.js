@@ -90,6 +90,31 @@ check(
   JSON.stringify(viaConfig.messages.map((m) => m.ruleId)),
 );
 
+// The JSON fixture hid a real bug: a rule was searching the processor's
+// commented-out text, and a quoted JSON key survives a `//` prefix while a bare
+// YAML key does not. Every finding in a YAML catalogue landed on line 1.
+console.log('\n=== a bare YAML key is found, not just a quoted JSON one ===');
+const yaml = [
+  {
+    files: ['test/fixture-yaml/locales/*.yml'],
+    plugins: { 'i18n-keeper': plugin },
+    processor: 'i18n-keeper/locale',
+  },
+  {
+    files: ['test/fixture-yaml/locales/*.yml/*.js'],
+    plugins: { 'i18n-keeper': plugin },
+    rules: { 'i18n-keeper/placeholders': 'error' },
+  },
+];
+const [de] = await new ESLint({ overrideConfigFile: true, overrideConfig: yaml }).lintFiles([
+  'test/fixture-yaml/locales/de.yml',
+]);
+check(
+  'the lost placeholder points at "total:" on line 4',
+  de.messages.length === 1 && de.messages[0].line === 4,
+  JSON.stringify(de.messages.map((m) => `${m.line}: ${m.message}`)),
+);
+
 console.log('\n=== a file outside any locale project says nothing ===');
 const eslint = new ESLint({
   overrideConfigFile: true,

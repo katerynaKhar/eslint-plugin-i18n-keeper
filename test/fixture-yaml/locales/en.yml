@@ -1,0 +1,6 @@
+en:
+  cart:
+    empty: Your cart is empty
+    total: "Total: %{amount}"
+  nav:
+    account: Account
