@@ -1,0 +1,12 @@
+{
+  "cart": {
+    "empty": "Your cart is empty",
+    "total": "Total: {{amount}}",
+    "items_one": "one item",
+    "items_other": "{{count}} items"
+  },
+  "nav": {
+    "account": "Account"
+  },
+  "brand": "Acme"
+}

@@ -1,0 +1,13 @@
+{
+  "cart": {
+    "empty": "Votre panier est vide",
+    "total": "Total :",
+    "items_one": "un article",
+    "items_other": "{{count}} articles"
+  },
+  "nav": {
+    "account": "Compte",
+    "logout": "Déconnexion"
+  },
+  "brand": "Acme"
+}
